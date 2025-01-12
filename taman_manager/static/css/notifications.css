@@ -1,0 +1,20 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.messageToDisplay{
+    text-align: center;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+.messageToDisplay > h1 {
+    font-family: "Baloo Bhaijaan 2", serif;
+    font-size: 50px;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+    color: black;
+  }

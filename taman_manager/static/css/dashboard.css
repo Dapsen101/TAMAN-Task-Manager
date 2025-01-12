@@ -1,0 +1,335 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background-color: rgb(230, 223, 223);
+}
+.main-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 100vh;
+    background-color: rgb(187, 183, 183);
+}
+.directContainer{
+    background-color: white;
+    border: 0;
+    border-radius: 10px;
+    width: 95%;
+    box-shadow: 0px 13px 20px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar{
+    width: 180px;
+    height: 500px;
+    background-color: black;
+    margin: 24px !important;
+    border-radius: 20px;
+    padding-top: 25px;
+}
+.LogoText{
+        font-family: "Baloo Bhaijaan 2", serif;
+        font-size: 34px;
+        font-optical-sizing: auto;
+        font-weight: 700;
+        font-style: normal;
+        color: white;
+}
+.sideBarMenu{
+    margin-top: 30%;
+}
+
+.material-symbols--dashboard {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23fff' d='M13 9V3h8v6zM3 13V3h8v10zm10 8V11h8v10zM3 21v-6h8v6z'/%3E%3C/svg%3E");
+  }
+/* .material-symbols--dashboard:hover{
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23fff' d='M13 9V3h8v6zM3 13V3h8v10zm10 8V11h8v10zM3 21v-6h8v6z'/%3E%3C/svg%3E");
+  } */
+  .uil--statistics {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23fff' d='M21.92 6.62a1 1 0 0 0-.54-.54A1 1 0 0 0 21 6h-5a1 1 0 0 0 0 2h2.59L13 13.59l-3.29-3.3a1 1 0 0 0-1.42 0l-6 6a1 1 0 0 0 0 1.42a1 1 0 0 0 1.42 0L9 12.41l3.29 3.3a1 1 0 0 0 1.42 0L20 9.41V12a1 1 0 0 0 2 0V7a1 1 0 0 0-.08-.38'/%3E%3C/svg%3E");
+  }
+  .fluent--people-team-48-filled {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cpath fill='%23fff' d='M18 11a6 6 0 1 1 12 0a6 6 0 0 1-12 0m19-4a5 5 0 1 0 0 10a5 5 0 0 0 0-10M11 7a5 5 0 1 0 0 10a5 5 0 0 0 0-10m8.25 12A4.25 4.25 0 0 0 15 23.25V34a9 9 0 1 0 18 0V23.25A4.25 4.25 0 0 0 28.75 19zM13 23.25c0-1.6.602-3.061 1.592-4.167A4.3 4.3 0 0 0 13.75 19h-5.5A4.25 4.25 0 0 0 4 23.25V33a7 7 0 0 0 10.293 6.179A10.95 10.95 0 0 1 13 34zM35 34c0 1.872-.468 3.635-1.293 5.179A7 7 0 0 0 44 33v-9.75A4.25 4.25 0 0 0 39.75 19h-5.5q-.433.001-.842.083A6.23 6.23 0 0 1 35 23.25z'/%3E%3C/svg%3E");
+  }
+  .fluent--task-list-20-filled {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath fill='%23fff' d='M5.854 4.354a.5.5 0 1 0-.708-.708L3.5 5.293l-.646-.647a.5.5 0 1 0-.708.708l1 1a.5.5 0 0 0 .708 0zM8.75 4.5a.75.75 0 0 0 0 1.5h8.5a.75.75 0 0 0 0-1.5zm0 5a.75.75 0 0 0 0 1.5h8.5a.75.75 0 0 0 0-1.5zM8 15.25a.75.75 0 0 1 .75-.75h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1-.75-.75M5.854 9.854a.5.5 0 1 0-.708-.708L3.5 10.793l-.646-.647a.5.5 0 0 0-.708.708l1 1a.5.5 0 0 0 .708 0zm0 4.292a.5.5 0 0 1 0 .708l-2 2a.5.5 0 0 1-.708 0l-1-1a.5.5 0 0 1 .708-.708l.646.647l1.646-1.647a.5.5 0 0 1 .708 0'/%3E%3C/svg%3E");
+  }
+  .MenuText{
+    color: #fff;
+    font-family: "Poppins", serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 14px;
+    text-decoration: none;
+    margin-right: 15px;
+  }
+  .tabler--logout {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cg fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='2'%3E%3Cpath d='M14 8V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h7a2 2 0 0 0 2-2v-2'/%3E%3Cpath d='M9 12h12l-3-3m0 6l3-3'/%3E%3C/g%3E%3C/svg%3E");
+  }
+  .icon{
+    margin-left: 15%;
+  }
+  .iconSideBar{
+    margin-top: 14% !important;
+    display: flex;
+    gap: 5%;
+    color: #8D918D;
+  }  
+  
+  .logout{
+    margin-top: 90% !important;
+  }
+  .middleSection{
+    height: 100px;
+    background-color: rgb(245, 245, 245);
+    margin: 24px !important;
+    border-radius: 10px;
+    padding-top: 25px;
+    margin-left: 5% !important;
+  }
+  .leftContainer{
+    margin-left: 2%!important;
+    width: 90%;
+  }
+  .iconsTop{
+    display: flex;
+    gap: 20px;
+    margin-top: 24px !important;
+    margin-left: 48% !important;
+  }
+  .material-symbols--settings {
+    margin-top: 2%;
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23000' d='m9.25 22l-.4-3.2q-.325-.125-.612-.3t-.563-.375L4.7 19.375l-2.75-4.75l2.575-1.95Q4.5 12.5 4.5 12.338v-.675q0-.163.025-.338L1.95 9.375l2.75-4.75l2.975 1.25q.275-.2.575-.375t.6-.3l.4-3.2h5.5l.4 3.2q.325.125.613.3t.562.375l2.975-1.25l2.75 4.75l-2.575 1.95q.025.175.025.338v.674q0 .163-.05.338l2.575 1.95l-2.75 4.75l-2.95-1.25q-.275.2-.575.375t-.6.3l-.4 3.2zm2.8-6.5q1.45 0 2.475-1.025T15.55 12t-1.025-2.475T12.05 8.5q-1.475 0-2.488 1.025T8.55 12t1.013 2.475T12.05 15.5'/%3E%3C/svg%3E");
+  }
+  .famicons--notifications-outline {
+    margin-top: 2%;
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath fill='none' stroke='%23000' stroke-linecap='round' stroke-linejoin='round' stroke-width='32' d='M427.68 351.43C402 320 383.87 304 383.87 217.35C383.87 138 343.35 109.73 310 96c-4.43-1.82-8.6-6-9.95-10.55C294.2 65.54 277.8 48 256 48s-38.21 17.55-44 37.47c-1.35 4.6-5.52 8.71-9.95 10.53c-33.39 13.75-73.87 41.92-73.87 121.35C128.13 304 110 320 84.32 351.43C73.68 364.45 83 384 101.61 384h308.88c18.51 0 27.77-19.61 17.19-32.57M320 384v16a64 64 0 0 1-128 0v-16'/%3E%3C/svg%3E");
+  }
+  .gridicons--dropdown {
+    margin-top: 10%;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23000' d='m7 10l5 5l5-5z'/%3E%3C/svg%3E");
+  }
+
+.profile-pic{
+    max-width: 30px; /* Set the maximum width */
+    max-height: 30px; /* Set the maximum height */
+    width: auto; /* Automatically adjust width while keeping aspect ratio */
+    height: auto; /* Automatically adjust height while keeping aspect ratio */
+    object-fit: cover; /* Ensures the image maintains its aspect ratio while filling the space */ 
+    border-radius: 50%;
+}
+
+  .ProfilePicSection{
+    display: flex;
+    gap: 3px;
+  }
+  .CreateTask{
+    background-image: linear-gradient(to right, #232323, #5B5B5B);
+    border-radius: 8px;
+    margin-top: 8%;
+    /* margin-left: 18%; */
+    color: white;
+    font-family: "Poppins", serif;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 14px;
+    padding: 10px 5px;
+    display: flex;
+    gap: 37%;
+    width: 100% !important;
+    /* margin-right: 15% !important; */
+  }
+  .ongoingTask{
+    padding-left: 15px;
+    text-align: left;
+  }
+  .ongoingTask > p{
+    margin-bottom:0;
+  }
+  .ListTasks{
+    font-weight: 400 !important;
+    margin-top: 5px;
+    font-size: 12px;
+  }
+  .addBtn{
+    margin-top: 5px;
+    border-radius: 50%;
+    text-align: center;
+    width: 40px;
+    height: 40px;
+    padding: 5px;
+    background-color: white;
+  }
+  .material-symbols--add {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23000' d='M11 13H5v-2h6V5h2v6h6v2h-6v6h-2z'/%3E%3C/svg%3E");
+  }
+  .MilestonesIntasks{
+    text-align: left;
+    margin-top: 5%;
+  }
+
+  .MilstoneInput > input[type="checkbox"] {
+    accent-color: gray; /* Modern browsers allow this property for checkboxes */
+  }
+  .MilestoneBtn{
+    background-color: #232323;
+    padding: 10px;
+    color: white;
+    font-family: "Poppins", serif;
+    font-size: 14px;
+    border-radius: 10px;
+    border: 0;
+    margin-top: 2%;
+  }
+.Meetings{
+  margin-top: 5%;
+  border: 0;
+  border-radius: 5px;
+  color: white;
+  font-family: "Poppins", serif;
+  font-size: 14px;
+  text-align: left;
+  padding: 7px;
+  background-image: linear-gradient(to right, #232323, #5B5B5B);
+}
+.welcomeText > h6{
+  font-family: "Baloo Bhaijaan 2", serif;
+        font-size: 34px;
+        font-optical-sizing: auto;
+        font-weight: 700;
+        font-style: normal;
+        color: black;
+}
+.welcomeText > p{
+  color: #5B5B5B;
+  margin-left: 5%;
+  
+}
+.note{
+  margin-top: 5%;
+  font-size: 12px;
+}
+.MeetingLink > a{
+  list-style-type: decimal-leading-zero;
+  text-decoration: none;
+  color: antiquewhite;
+  cursor: pointer;
+}
+.imageWelcome{
+  justify-content: center;
+  margin-top: 0 !important;
+}
+.middleSection{
+  padding: 0 !important;
+}
+.welcomeText{
+  margin-top: 20px !important;
+}
+.tasksDetail{
+  background-color: rgb(245, 245, 245);
+  width: 100px;
+  padding:5px 2px 3px 2px;
+  text-align:left;
+  margin-right: 2%;
+  border-radius: 15px;
+  
+}
+.CardsTasks{
+  width:98%;
+  margin: 2% 1.5% !important;
+}
+.tasksDetail > h2{
+  font-family: "Baloo Bhaijaan 2", serif;
+        font-size: 30px;
+        font-optical-sizing: auto;
+        font-weight: 700;
+        font-style: normal;
+        color: black;
+        padding-bottom: 0 !important;
+}
+.tasksDetail > p{
+  color: #5B5B5B;
+}
+.Statistics{
+  text-align: left;
+  margin-top: 20px;
+}
+.Statistics > h5{
+  font-family: "Baloo Bhaijaan 2", serif;
+        font-size: 20px;
+        font-optical-sizing: auto;
+        font-weight: 500;
+        font-style: normal;
+        color: black;
+        padding-bottom: 0 !important;
+}
+.StatisticsDetails{
+  display: flex;
+}
+.dropdown{
+  background-color: rgb(245, 245, 245) !important;
+  color: black !important;
+  margin-left: 65% !important;
+  border-radius: 10px !important;
+}
+.dropdownStat{ 
+  
+  background-color: rgb(245, 245, 245) !important;
+  color: black !important;
+
+}
+.StatGraph{
+  text-align: center;
+}

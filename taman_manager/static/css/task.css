@@ -1,0 +1,59 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.tasksContainer{
+    text-align: center;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+.tasksContainer > h3 {
+    font-family: "Baloo Bhaijaan 2", serif;
+    font-size: 50px;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+    color: black;
+  }
+  .tasksContainer > button{
+    background-color: rgb(63, 61, 61);
+    padding: 20px;
+    border: 0;
+    border-radius: 5px;
+  }
+  .createTaskContainer{
+    background-color: black;
+    display:none;
+    color: white;
+    border-radius: 10px;
+    width: 40%;
+    /* padding: 20px !important;
+    text-align: left; */
+  }
+  .formDetail{
+    margin-top: 20px;
+  }
+  .formDetail input{
+    background-color: black;
+    border: 1px gray solid;
+    border-radius: 5px;
+    text-align: center;
+    margin-left: 5%;
+  }
+  .formDetail input::placeholder{
+    color: rgba(155, 149, 149, 0.854);
+  }
+ .Milestones{
+    margin-top: 10% !important;
+ }
+ p{
+    color: grey;
+ }
+ .submitBtn{
+    padding:10px 20px !important;
+    background-color: rgb(122, 119, 119) !important;
+    color: white !important;
+ }

@@ -1,0 +1,108 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+.LogoDiv{
+    text-align: left;
+    margin-left: 7%;
+    padding-left: 7%;
+    padding-top: 5%;
+}
+.LogoText{
+        font-family: "Baloo Bhaijaan 2", serif;
+        font-optical-sizing: auto;
+        font-weight: 700;
+        font-style: normal;
+        margin-bottom: 20px;
+}
+.forgotPassword{
+    margin-left: 32%;
+    color: rgb(132, 130, 129);
+}
+.forgotPassword > a{
+    text-decoration: none;
+    color: rgb(132, 130, 129);
+
+}
+.Header{
+    font-size: 20px;
+    font-family: "Baloo Bhaijaan 2", serif;
+}
+.details{
+    width: 80%;
+}
+.Login-Container{
+    margin-top: 1.5%;
+    color: white;
+    
+}
+.directContainer{
+    background-color: rgb(11, 10, 10);
+    border: 0px solid;
+    border-radius: 25px;
+    padding: 1.5% 1%;
+    height: 60%;
+}
+.loginForm{
+    width: 80%;
+    margin-left: 15%;
+    align-items: center;
+    align-self: center;
+    justify-content: center;
+    margin-top: 5%;
+    text-align: left;
+}
+
+.teamImage > img {
+    background-color: rgb(83, 81, 81);
+    border: 0 solid rgb(100, 99, 99);
+    border-radius: 25px;
+}
+.form-check-label {
+    margin-left: 5px; 
+  }
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-5px); /* Move up by 10px */
+    }
+}
+.illustration > img{
+    width: 100%;
+    max-width: 400px;
+    animation: float 3s ease-in-out infinite;
+} 
+
+.loginBtn {
+    text-decoration: none;
+    color: black;
+    font-weight: 400;
+    font-size: 17px;
+    font-family: "Baloo Bhaijaan 2", serif;
+    background-color: rgb(126, 126, 124) !important;
+    border: 0 solid rgb(126, 126, 124) !important;
+}
+.loginGgleBtn{
+    width: 70% !important;
+    margin-left: 14% !important;
+    color: black !important;
+    border: 0 !important;
+    text-align: center !important;
+    padding-right: 5% !important;
+    background-color: aliceblue !important;
+}
+.GgleIcon{
+    margin-right: 2%;
+}
+.SignUpButton{
+    text-align: center;
+    margin-top: 5%;
+}
+.SignUpButton > a{
+    text-decoration: none;
+    color: rgb(132, 130, 129);
+}
+  

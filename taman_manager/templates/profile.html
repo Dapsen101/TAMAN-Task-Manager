@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% load static %}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Profile</title>
+    <link rel="stylesheet" href="{% static 'css/profile.css' %}">
+</head>
+<body>
+    <div class="profile-container">
+        <h2>Edit Profile</h2>
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="edit-btn">Save Changes</button>
+        </form>
+    </div>
+</body>
+</html>

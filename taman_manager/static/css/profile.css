@@ -1,0 +1,107 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f7f7f7;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* Profile Container */
+.profile-container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 600px;
+    text-align: center;
+}
+
+/* Heading Styling */
+.profile-container h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Form Styling */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+form input,
+form textarea,
+form button {
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width: 100%;
+}
+
+form input[type="file"] {
+    border: none;
+    padding: 8px;
+}
+
+/* Button Styling */
+.edit-btn {
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.edit-btn:hover {
+    background-color: #45a049;
+}
+
+/* Label Styling */
+form label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #555;
+}
+
+/* Form Field Styling */
+form .field {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+form .field input,
+form .field textarea {
+    padding: 12px;
+    font-size: 16px;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .profile-container {
+        width: 90%;
+    }
+
+    form input,
+    form textarea,
+    form button {
+        font-size: 14px;
+        padding: 8px;
+    }
+}

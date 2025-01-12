@@ -1,0 +1,53 @@
+<!-- view_profile.html -->
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% load static %}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/view_profile.css' %}">
+    <title>User Profile</title>
+</head>
+<body>
+    <div class="profile-container">
+        <div class="profile-header">
+            <h2>{{ profile.user.username }}'s Profile</h2>
+            <p>Welcome to your profile page!</p>
+        </div>
+
+        <div class="profile-image">
+            <img src="{{ profile.image.url }}" alt="Profile Picture">
+        </div>
+
+        <div class="profile-info">
+            <div>
+                <label for="full-name">Full Name:</label>
+                <div class="value">{{ profile.full_name }}</div>
+            </div>
+            <div>
+                <label for="email">Email:</label>
+                <div class="value">{{ profile.email }}</div>
+            </div>
+            <div>
+                <label for="bio">Bio:</label>
+                <div class="value">{{ profile.bio }}</div>
+            </div>
+            <div>
+                <label for="location">Location:</label>
+                <div class="value">{{ profile.location }}</div>
+            </div>
+        </div>
+
+        <div class="profile-action-buttons">
+            <a href="{% url 'profile' %}">
+                <button class="edit-btn">Edit Profile</button>
+            </a>
+            <button class="delete-btn">Delete Account</button>
+            <a href="{% url 'dashboard' %}">
+                <button class="edit-btn">Dashboard</button>
+            </a>
+        </div>
+    </div>
+</body>
+</html>
