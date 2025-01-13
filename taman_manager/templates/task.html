@@ -3,71 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Task Manager | Tasks</title>
-    <link rel="stylesheet" href="/static/css/task.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@400..800&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@400..800&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <title>Document</title>
 </head>
 <body>
-    <div class="tasksContainer">
-        <div class="tasksContainer" id="CreateTaskDiv">
-            <h3>No Task to display!</h3>
-            <button id="createTaskBtn" onclick="CreateTask()">Create new Task</button>
-        </div>
-        <div class="createTaskContainer" id="createTaskContainer">
-            <p>Fill form with details for task to be created</p>
-            <form class="taskForm" action="./task.html">
-                <div class="formDetail">
-                    <label for="taskTitl">Task Name:</label>
-                    <input type="text" placeholder="Login Page" required>
-                </div>
-                <div class="formDetail">
-                    <label for="taskTitl">Assignee Username:</label>
-                    <input type="text" placeholder="johndoe" required>
-                </div>
-                <div class="formDetail">
-                    <label for="taskTitl">Due date: </label>
-                    <input type="date" placeholder="4/12/2024" required>
-                </div>
-              <div class="Milestones">
-                <div class="formDetail">
-                    <p>Milestones</p>
-                    <p>Load at least three milestones</p>
-                    <label for="taskTitl">Milestone 1:</label>
-                    <input type="text" placeholder="Dashboard" required>
-                </div>
-                <div class="formDetail">
-                    <label for="taskTitl">Milestone 2:</label>
-                    <input type="text" placeholder="Signup" required>
-                </div>
-                <div class="formDetail">
-                    <label for="taskTitl">Milestone 3:</label>
-                    <input type="text" placeholder="Login" required>
-                </div>
-                <div class="formDetail">
-                    <label for="taskTitl">Milestone 4:</label>
-                    <input type="text" placeholder="Logout">
-                </div>
-                <div class="formDetail">
-                    <label for="taskTitl">Milestone 5:</label>
-                    <input type="text" placeholder="Landing page">
-                </div>
-              </div>
-              <div class="formDetail">
-                <input class="submitBtn" type="submit"value="submit">
-              </div> 
-            </form>
-        </div>
-    </div>
-    
-    
-
-    <script src="./js/task.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <h2>Your Tasks</h2>
+    <ul>
+      {% for task in tasks %}
+        <li>{{ task.name }} - {{ task.milestone }} - {% if task.completion_status %} Completed {% else %} Not Completed {% endif %}</li>
+      {% endfor %}
+    </ul>
 </body>
 </html>

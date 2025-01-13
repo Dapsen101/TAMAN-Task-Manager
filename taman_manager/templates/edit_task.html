@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/edit_task.css' %}">
+    <title>Edit Task</title>
+</head>
+<body>
+<div class="container mt-5">
+    <h2>Edit Task</h2>
+
+    <form method="POST">
+        {% csrf_token %}
+        <!-- Task Name -->
+        <div class="form-group">
+            <label for="name">Task Name:</label>
+            <input type="text" id="name" name="name" class="form-control" value="{{ form.name.value|default:'' }}" required>
+        </div>
+
+        <!-- Task Description -->
+        <div class="form-group">
+            <label for="description">Description:</label>
+            <textarea id="description" name="description" class="form-control" required>{{ form.description.value|default:'' }}</textarea>
+        </div>
+
+        <!-- Task Status -->
+        <div class="form-group">
+            <label for="status">Status:</label>
+            <select id="status" name="status" class="form-control" required>
+                <option value="In Progress" {% if form.status.value == "In Progress" %}selected{% endif %}>In Progress</option>
+                <option value="Completed" {% if form.status.value == "Completed" %}selected{% endif %}>Completed</option>
+            </select>
+        </div>
+
+        <!-- Assigned To -->
+        <div class="form-group">
+            <label for="assigned_to">Assign to:</label>
+            <select id="assigned_to" name="assigned_to" class="form-control">
+                <option value="">-- Unassigned --</option>
+                {% for user in users %}
+                <option value="{{ user.id }}" {% if form.assigned_to.value == user.id %}selected{% endif %}>
+                    {{ user.username }}
+                </option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <!-- Submit Button -->
+        <button type="submit" class="btn btn-success">Update Task</button>
+
+        <!-- Back to Home Button -->
+        <a href="{% url 'dashboard' %}" class="btn btn-secondary">Back to Home</a>
+    </form>
+</div>
+</body>
+</html>

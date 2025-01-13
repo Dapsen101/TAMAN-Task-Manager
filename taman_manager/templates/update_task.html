@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Update Status for Task: {{ task.name }}</h2>
+    <form method="POST">
+      {% csrf_token %}
+      <label for="status">Status:</label>
+      <select name="status" id="status">
+        <option value="not_started" {% if task.status == 'not_started' %}selected{% endif %}>Not Started</option>
+        <option value="in_progress" {% if task.status == 'in_progress' %}selected{% endif %}>In Progress</option>
+        <option value="completed" {% if task.status == 'completed' %}selected{% endif %}>Completed</option>
+      </select>
+      <button type="submit">Update Status</button>
+    </form>
+  
+</body>
+</html>

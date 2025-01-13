@@ -20,6 +20,24 @@ class Profile(models.Model):
     location = models.CharField(max_length=100, blank=True, null=True)  # Adding the location field
     bio = models.TextField(blank=True, null=True)
     image = models.ImageField(upload_to='images/', default='ProfilePicture.png')
-
+ 
     def __str__(self):
         return f'{self.user.username} Profile' 
+    
+class Task(models.Model):
+    STATUS_CHOICES = [
+        ('Created', 'Created'),
+        ('In Progress', 'In Progress'),
+        ('Completed', 'Completed'),
+    ]
+
+    name = models.CharField(max_length=255)
+    description = models.TextField()
+    status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='Created')
+    milestone = models.CharField(max_length=255)
+    assigned_to = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True)
+    created_by = models.ForeignKey(User, related_name='created_tasks', on_delete=models.CASCADE, default=0)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.name

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/view_task.css' %}">
+    <title>View Tasks</title>
+</head>
+<body>
+<div class="container mt-5">
+    <h2>Task Manager</h2>
+
+    <!-- Back to Home Button -->
+    <a href="{% url 'dashboard' %}" class="btn btn-secondary mb-3">Back to Home</a>
+
+    <!-- Create Task Button -->
+    <a href="{% url 'create_task' %}" class="btn btn-primary mb-3">Create Task</a>
+
+    {% if tasks %}
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Task Name</th>
+                <th>Description</th>
+                <th>Status</th>
+                <th>Assigned To</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for task in tasks %}
+            <tr>
+                <td>{{ task.name }}</td>
+                <td>{{ task.description }}</td>
+                <td>{{ task.status }}</td>
+                <td>
+                    {% if task.assigned_to %}
+                        {{ task.assigned_to.username }}
+                    {% else %}
+                        Unassigned
+                    {% endif %}
+                </td>
+                <td>
+                    <!-- Update Status Form -->
+                    <form method="POST" action="{% url 'update_status' task.id %}">
+                        {% csrf_token %}
+                        <select name="status" class="form-control mb-2">
+                            <option value="In Progress" {% if task.status == "In Progress" %}selected{% endif %}>In Progress</option>
+                            <option value="Completed" {% if task.status == "Completed" %}selected{% endif %}>Completed</option>
+                        </select>
+
+                        <button type="submit" class="btn btn-success">Update Status</button>
+                    </form>
+
+                    <!-- Edit Task Button -->
+                    <a href="{% url 'edit_task' task.id %}" class="btn btn-warning mt-2">Edit Task</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <p>No tasks available.</p>
+    <a href="{% url 'create_task' %}"><button class="btn btn-primary">Create Task</button></a>
+    {% endif %}
+</div>
+</body>
+</html>

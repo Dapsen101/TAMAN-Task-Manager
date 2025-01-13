@@ -38,20 +38,20 @@
                                 <a href="" class="MenuText iconText">Statistics </a>   
                             </div>
                             <div class=" iconSideBar three">
-                                <div class=" icon"> <a href="./teams.html">
+                                <div class=" icon"> <a href="">
                                     <span class="fluent--people-team-48-filled "></span>
                                      </a>
                                 </div>
-                                 <a href="./teams.html" class="MenuText iconText"> Teams</a>     
+                                 <a href="" class="MenuText iconText"> Teams</a>     
                             </div>
                             <div class=" iconSideBar four">
-                                <div class=" icon"> <a href="./task.html">
+                                <div class=" icon"> <a href="">
                                     <span class="fluent--task-list-20-filled  "></span>                        
                                 </a></div>
-                                 <a href="./task.html" class="MenuText iconText">Task </a>       
+                                 <a href="{% url 'view_tasks' %}" class="MenuText iconText">Task </a>       
                             </div>
                             <div class="logout iconSideBar">
-                                <div class=" icon"> <a href="../index.html">
+                                <div class=" icon"> <a href="">
                                     <span class="tabler--logout"></span>                       
                                 </a></div>
                                  <a href="{% url 'logout' %}" class="MenuText iconText">Logout </a>       
@@ -73,15 +73,15 @@
                  </div>
                  <div class="CardsTasks row">
                     <div class="col tasksDetail taskToDo">
-                        <h2>11</h2>
-                        <p>Tasks to do</p>
+                        <h2>{{ tasks_created }}</h2>
+                        <p>Tasks Created</p>
                     </div>
                     <div class="col tasksDetail taskDt taskInProgress">
-                        <h2>21</h2>
+                        <h2>{{ tasks_in_progress }}</h2>
                         <p>Tasks in progress</p>
                     </div>
                     <div class="col tasksDetail taskDt taskDone">
-                        <h2>5</h2>
+                        <h2>{{ tasks_completed }}</h2>
                         <p>Tasks Done</p>
                     </div>
                  </div>
@@ -125,7 +125,7 @@
                                 <p class="ListTasks"> Create a new task </p>
                             </div>
                             <div class="addBtn">
-                                <a href="./task.html"><span class="material-symbols--add"></span></a>
+                                <a href="{% url 'view_tasks' %}"><span class="material-symbols--add"></span></a>
                                 
                             </div>
                             
