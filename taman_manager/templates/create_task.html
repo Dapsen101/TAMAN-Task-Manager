@@ -1,13 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  {%load static%}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/create_task.css' %}">
+
     <title>Document</title>
 </head>
 <body>
-    <h2>Create Task</h2>
+
+    
     <form method="post">
+      <div class="HeaderText">
+        <h2>Create Task</h2>
+      </div>
+
       {% csrf_token %}
       {{ form.as_p }}
       <button type="submit">Create Task</button>

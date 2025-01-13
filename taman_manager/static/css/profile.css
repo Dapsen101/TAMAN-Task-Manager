@@ -58,7 +58,7 @@ form input[type="file"] {
 
 /* Button Styling */
 .edit-btn {
-    background-color: #4CAF50;
+    background-color: #3d543e !important;
     color: #fff;
     border: none;
     cursor: pointer;
@@ -74,7 +74,7 @@ form input[type="file"] {
 form label {
     font-weight: bold;
     margin-bottom: 5px;
-    color: #555;
+    color: #555 !important;
 }
 
 /* Form Field Styling */
