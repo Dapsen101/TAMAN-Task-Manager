@@ -18,6 +18,8 @@ urlpatterns = [
     path('create-task/', views.create_task, name='create_task'),
     path('view-tasks/', views.view_tasks, name='view_tasks'),
     path('edit-task/<int:task_id>/', views.edit_task, name='edit_task'),
-    path('update-status/<int:task_id>/', views.update_status, name='update_status')
+    path('delete-task/<int:task_id>/', views.delete_task, name='delete_task'),
+    path('update-status/<int:task_id>/', views.update_status, name='update_status'),
+    path('api/analytics/', views.analytics_api, name='analytics_api'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
  

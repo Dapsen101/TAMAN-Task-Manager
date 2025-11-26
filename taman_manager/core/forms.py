@@ -11,12 +11,13 @@ class ProfileForm(forms.ModelForm):
 class TaskForm(forms.ModelForm):
     class Meta:
         model = Task
-        fields = ['name', 'milestone', 'description', 'assigned_to', 'status']
+        fields = ['name', 'milestone', 'description', 'assigned_to', 'status', 'category', 'due_date']
         widgets = {
-            'status': forms.Select(choices=[
-                ('Created', 'Created'),
-                ('In Progress', 'In Progress'),
-                ('Completed', 'Completed'),
-                ('Ongoing', 'Ongoing'),
-            ]),
+            'description': forms.Textarea(attrs={'rows': 4, 'class': 'form-control'}),
+            'name': forms.TextInput(attrs={'class': 'form-control'}),
+            'milestone': forms.TextInput(attrs={'class': 'form-control'}),
+            'status': forms.Select(attrs={'class': 'form-control'}),
+            'category': forms.Select(attrs={'class': 'form-control'}),
+            'assigned_to': forms.Select(attrs={'class': 'form-control'}),
+            'due_date': forms.DateTimeInput(attrs={'type': 'datetime-local', 'class': 'form-control'}),
         }

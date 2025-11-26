@@ -31,13 +31,37 @@ class Task(models.Model):
         ('Completed', 'Completed'),
     ]
 
+    CATEGORY_CHOICES = [
+        ('Work', 'Work'),
+        ('Personal', 'Personal'),
+        ('Shopping', 'Shopping'),
+        ('Health', 'Health'),
+        ('Education', 'Education'),
+        ('Other', 'Other'),
+    ]
+
     name = models.CharField(max_length=255)
     description = models.TextField()
     status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='Created')
+    category = models.CharField(max_length=20, choices=CATEGORY_CHOICES, default='Work')
     milestone = models.CharField(max_length=255)
-    assigned_to = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True)
-    created_by = models.ForeignKey(User, related_name='created_tasks', on_delete=models.CASCADE, default=0)
+    assigned_to = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True, related_name='assigned_tasks')
+    created_by = models.ForeignKey(User, related_name='created_tasks', on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+    due_date = models.DateTimeField(null=True, blank=True)
+    completed_at = models.DateTimeField(null=True, blank=True)
+
+    class Meta:
+        ordering = ['-created_at']
 
     def __str__(self):
         return self.name
+    
+    def save(self, *args, **kwargs):
+        if self.status == 'Completed' and not self.completed_at:
+            from django.utils import timezone
+            self.completed_at = timezone.now()
+        elif self.status != 'Completed':
+            self.completed_at = None
+        super().save(*args, **kwargs)
