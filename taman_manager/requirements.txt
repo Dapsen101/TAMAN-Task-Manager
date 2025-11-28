@@ -1,6 +1,7 @@
 asgiref==3.10.0
 channels==4.3.1
 csscompressor==0.9.5
+dj-database-url==3.0.1
 Django==5.1.4
 django-redis==6.0.0
 dotenv==0.9.9
