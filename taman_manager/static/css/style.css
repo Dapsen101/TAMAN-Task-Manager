@@ -1,108 +1,186 @@
-*{
-    padding: 0;
+* {
     margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
-.LogoDiv{
-    text-align: left;
-    margin-left: 7%;
-    padding-left: 7%;
-    padding-top: 5%;
-}
-.LogoText{
-        font-family: "Baloo Bhaijaan 2", serif;
-        font-optical-sizing: auto;
-        font-weight: 700;
-        font-style: normal;
-        margin-bottom: 20px;
-}
-.forgotPassword{
-    margin-left: 32%;
-    color: rgb(132, 130, 129);
-}
-.forgotPassword > a{
-    text-decoration: none;
-    color: rgb(132, 130, 129);
 
+html,
+body {
+    background-color: #f3ddbe !important;
+    font-family: "Montserrat", sans-serif;
+    color: #3F3F46;
+    min-height: 100vh;
 }
-.Header{
-    font-size: 20px;
-    font-family: "Baloo Bhaijaan 2", serif;
-}
-.details{
-    width: 80%;
-}
-.Login-Container{
-    margin-top: 1.5%;
-    color: white;
-    
-}
-.directContainer{
-    background-color: rgb(11, 10, 10);
-    border: 0px solid;
-    border-radius: 25px;
-    padding: 1.5% 1%;
-    height: 60%;
-}
-.loginForm{
-    width: 80%;
-    margin-left: 15%;
+
+.Login-Container {
+    display: flex;
     align-items: center;
-    align-self: center;
     justify-content: center;
-    margin-top: 5%;
-    text-align: left;
-}
-
-.teamImage > img {
-    background-color: rgb(83, 81, 81);
-    border: 0 solid rgb(100, 99, 99);
-    border-radius: 25px;
-}
-.form-check-label {
-    margin-left: 5px; 
-  }
-
-@keyframes float {
-    0%, 100% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(-5px); /* Move up by 10px */
-    }
-}
-.illustration > img{
+    padding: 40px 15px;
     width: 100%;
-    max-width: 400px;
-    animation: float 3s ease-in-out infinite;
-} 
+}
+
+.directContainer {
+    background-color: #fdf5e9;
+    border-radius: 25px;
+    padding: 50px 40px;
+    box-shadow: 0 10px 30px rgba(20, 83, 45, 0.08);
+    width: 100%;
+    max-width: 900px;
+}
+
+.LogoDiv {
+    text-align: left;
+    margin-bottom: 30px;
+}
+
+.LogoText {
+    font-family: "Baloo Bhaijaan 2", serif;
+    font-weight: 700;
+    font-size: 36px;
+    color: #14532D;
+    margin-bottom: 10px;
+}
+
+.Header {
+    font-size: 20px;
+    color: #14532D;
+    margin-bottom: 10px;
+}
+
+.details {
+    color: #6B7280;
+    max-width: 600px;
+}
+
+.loginForm {
+    width: 100%;
+    margin-top: 30px;
+}
+
+.form-control {
+    border-radius: 12px;
+    border: 1px solid #D6D3D1;
+    padding: 10px;
+    background-color: #F9FAFB;
+    color: #3F3F46;
+    transition: 0.2s ease;
+}
+
+.form-control:focus {
+    border-color: #4ADE80;
+    box-shadow: 0 0 0 0.2rem rgba(74, 222, 128, 0.25);
+}
 
 .loginBtn {
-    text-decoration: none;
-    color: black;
-    font-weight: 400;
+    width: 100%;
+    border-radius: 12px;
     font-size: 17px;
     font-family: "Baloo Bhaijaan 2", serif;
-    background-color: rgb(126, 126, 124) !important;
-    border: 0 solid rgb(126, 126, 124) !important;
+    background-color: #14532D !important;
+    border: none !important;
+    color: white !important;
+    padding: 12px;
+    transition: 0.3s ease;
 }
-.loginGgleBtn{
-    width: 70% !important;
-    margin-left: 14% !important;
-    color: black !important;
-    border: 0 !important;
-    text-align: center !important;
-    padding-right: 5% !important;
-    background-color: aliceblue !important;
+
+.loginBtn:hover {
+    background-color: #0F3D23 !important;
 }
-.GgleIcon{
-    margin-right: 2%;
+
+.loginGgleBtn {
+    width: 100% !important;
+    margin-top: 15px !important;
+    border-radius: 12px !important;
+    background-color: #F3F4F6 !important;
+    color: #3F3F46 !important;
+    border: 1px solid #D6D3D1 !important;
+    padding: 12px;
+    transition: 0.3s ease;
 }
-.SignUpButton{
-    text-align: center;
-    margin-top: 5%;
+
+.loginGgleBtn:hover {
+    background-color: #E5E7EB !important;
 }
-.SignUpButton > a{
+
+.loginBtn>a {
+    color: white !important;
     text-decoration: none;
-    color: rgb(132, 130, 129);
 }
-  
+
+.forgotPassword>a,
+.SignUpButton>a {
+    color: #14532D;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.forgotPassword>a:hover,
+.SignUpButton>a:hover {
+    text-decoration: underline;
+}
+
+.teamImage img {
+    border-radius: 25px;
+    max-width: 100%;
+    height: auto;
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+@media (max-width: 992px) {
+    .directContainer {
+        padding: 40px 30px;
+    }
+
+    .LogoDiv {
+        text-align: center;
+    }
+
+    .details {
+        margin: 0 auto;
+    }
+}
+@media (max-width: 764px) {
+    .row {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 576px) {
+    .directContainer {
+        padding: 30px 20px;
+        border-radius: 20px;
+    }
+
+    .LogoText {
+        font-size: 28px;
+        text-align: center;
+    }
+
+    .Header {
+        text-align: center;
+    }
+
+    .details {
+        text-align: center;
+        font-size: 14px;
+    }
+
+    .loginBtn,
+    .loginGgleBtn {
+        font-size: 15px;
+    }
+}
