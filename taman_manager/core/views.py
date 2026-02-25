@@ -168,7 +168,10 @@ def RegisterView(request):
                 email=email,
                 password=password
             )
-            Profile.objects.create(user=user, full_name=username, email=email)
+            firstname = request.POST.get('firstname', '')
+            lastname = request.POST.get('lastname', '')
+            full_name = f"{firstname} {lastname}".strip() or username
+            Profile.objects.create(user=user, full_name=full_name, email=email)
             messages.success(request, 'Account created successfully. Please login.')
             return redirect('login')
 
