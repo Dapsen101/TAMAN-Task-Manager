@@ -9,6 +9,7 @@ urlpatterns = [
     path('accounts/register/', views.RegisterView, name='register'),
     path('accounts/login/', views.LoginView, name='login'),
     path('accounts/logout/', views.LogoutView, name='logout'),
+    path('accounts/delete/', views.delete_account, name='delete_account'),
     path('forgot-password/', views.ForgotPassword, name='forgot-password'),
     path('password-reset-sent/<str:reset_id>/', views.PasswordResetSent, name='password-reset-sent'),
     path('reset-password/<str:reset_id>/', views.ResetPassword, name='reset-password'),

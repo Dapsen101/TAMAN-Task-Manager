@@ -204,6 +204,17 @@ def LoginView(request):
 
 
 @login_required
+def delete_account(request):
+    if request.method == 'POST':
+        user = request.user
+        logout(request)
+        user.delete()
+        messages.success(request, 'Your account has been deleted successfully.')
+        return redirect('login')
+    return render(request, 'registration/delete_account_confirm.html')
+
+
+@login_required
 def LogoutView(request):
     logout(request)
     messages.success(request, 'You have been logged out successfully.')

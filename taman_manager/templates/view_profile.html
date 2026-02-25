@@ -2,6 +2,7 @@
 <!DOCTYPE html>
 
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     {% load static %}
@@ -9,6 +10,7 @@
     <link rel="stylesheet" href="{% static 'css/view_profile.css' %}">
     <title>User Profile</title>
 </head>
+
 <body>
     <div class="profile-container">
         <div class="profile-header">
@@ -43,11 +45,17 @@
             <a href="{% url 'profile' %}">
                 <button class="edit-btn">Edit Profile</button>
             </a>
-            <button class="delete-btn">Delete Account</button>
+            <a href="{% url 'delete_account' %}">
+                <button class="delete-btn">Delete Account</button>
+            </a>
             <a href="{% url 'dashboard' %}">
                 <button class="edit-btn">Dashboard</button>
+            </a>
+            <a href="{% url 'logout' %}">
+                <button class="logout-btn" style="background-color: #4b5563; color: white;">Logout</button>
             </a>
         </div>
     </div>
 </body>
+
 </html>
