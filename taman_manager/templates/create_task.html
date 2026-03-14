@@ -11,195 +11,264 @@
     rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <style>
-    body {
-      font-family: "Poppins", sans-serif;
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      min-height: 100vh;
-      padding: 20px;
-    }
+  * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-    .form-container {
-      max-width: 700px;
-      margin: 0 auto;
-      background: white;
-      border-radius: 16px;
-      padding: 40px;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-    }
+html,
+body {
+  background-color: #f3ddbe !important;
+  font-family: "Montserrat", sans-serif;
+  color: #3F3F46;
+  min-height: 100vh;
+  overflow-x: hidden;
+  padding: 20px;
+  margin-top: 0px;
+}
 
-    .form-header {
-      text-align: center;
-      margin-bottom: 30px;
-    }
+.main-header {
+  background-color: #fdf5e9;
+  padding: 10px 0;
+  border-radius: 0 0 25px 25px;
+  box-shadow: 0 5px 20px rgba(20, 83, 45, 0.08);
+  margin-bottom: 30px;
+}
 
-    .form-header h2 {
-      color: #1f2937;
-      font-weight: 600;
-      margin-bottom: 10px;
-    }
+.navbar-brand {
+  font-family: "Baloo Bhaijaan 2", serif;
+  font-weight: 700;
+  font-size: 26px;
+  color: #14532D !important;
+}
 
-    .form-header p {
-      color: #6b7280;
-    }
+.nav-link {
+  color: #3F3F46 !important;
+  font-weight: 500;
+  transition: 0.2s ease;
+}
 
-    .form-group {
-      margin-bottom: 25px;
-    }
+.nav-link:hover {
+  color: #14532D !important;
+}
 
-    .form-label {
-      font-weight: 500;
-      color: #374151;
-      margin-bottom: 8px;
-      display: block;
-    }
+.navbar-toggler {
+  border: none !important;
+  box-shadow: none !important;
+}
 
-    .form-control {
-      padding: 12px 15px;
-      border: 2px solid #e5e7eb;
-      border-radius: 8px;
-      font-size: 14px;
-      transition: all 0.3s ease;
-      width: 100%;
-    }
+.form-container {
+  background-color: #fdf5e9;
+  border-radius: 25px;
+  padding: 50px 40px;
+  box-shadow: 0 10px 30px rgba(20, 83, 45, 0.08);
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+}
 
-    .form-control:focus {
-      outline: none;
-      border-color: #6366f1;
-      box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
-    }
+.form-header {
+  text-align: left;
+  margin-bottom: 30px;
+}
 
-    textarea.form-control {
-      resize: vertical;
-      min-height: 120px;
-    }
+.form-header h2 {
+  font-family: "Baloo Bhaijaan 2", serif;
+  font-size: 28px;
+  color: #14532D;
+  margin-bottom: 8px;
+}
 
-    .btn-submit {
-      background: #6366f1;
-      color: white;
-      padding: 12px 30px;
-      border: none;
-      border-radius: 8px;
-      font-weight: 500;
-      font-size: 16px;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      width: 100%;
-    }
+.form-header p {
+  color: #6B7280;
+}
 
-    .btn-submit:hover {
-      background: #4f46e5;
-      transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(99, 102, 241, 0.4);
-    }
+.form-group {
+  margin-bottom: 25px;
+}
 
-    .btn-back {
-      background: #6b7280;
-      color: white;
-      padding: 10px 20px;
-      border-radius: 8px;
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      margin-bottom: 20px;
-      transition: all 0.3s ease;
-    }
+.form-label {
+  font-weight: 600;
+  color: #14532D;
+  margin-bottom: 6px;
+  display: block;
+}
 
-    .btn-back:hover {
-      background: #4b5563;
-      color: white;
-    }
+.form-control,
+select {
+  border-radius: 12px;
+  border: 1px solid #D6D3D1;
+  padding: 12px;
+  background-color: #F9FAFB;
+  color: #3F3F46;
+  transition: 0.2s ease;
+  width: 100%;
+}
 
-    .errorlist {
-      list-style: none;
-      padding: 0;
-      margin: 10px 0 0 0;
-    }
+.form-control:focus,
+select:focus {
+  border-color: #4ADE80;
+  box-shadow: 0 0 0 0.2rem rgba(74, 222, 128, 0.25);
+  outline: none;
+}
 
-    .errorlist li {
-      color: #ef4444;
-      font-size: 13px;
-      padding: 5px 0;
-    }
+textarea.form-control {
+  resize: vertical;
+  min-height: 120px;
+}
 
-    .help-text {
-      font-size: 12px;
-      color: #6b7280;
-      margin-top: 5px;
-    }
+.btn-submit {
+  width: 100%;
+  border-radius: 12px;
+  font-size: 17px;
+  font-family: "Baloo Bhaijaan 2", serif;
+  background-color: #14532D !important;
+  border: none !important;
+  color: white !important;
+  padding: 14px;
+  transition: 0.3s ease;
+}
 
+.btn-submit:hover {
+  background-color: #0F3D23 !important;
+}
 
-    @media (max-width: 768px) {
-      body {
-        padding: 10px;
-      }
+.btn-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-color: #14532D;
+  color: #FFFFFF;
+  padding: 10px 16px;
+  border-radius: 12px;
+  text-decoration: none;
+  margin-bottom: 25px;
+  transition: 0.3s ease;
+}
 
-      .form-container {
-        padding: 20px;
-        margin: 0;
-      }
+.btn-back:hover {
+  background-color: #E5E7EB;
+}
 
-      .form-header h2 {
-        font-size: 24px;
-      }
+.errorlist {
+  list-style: none;
+  padding: 0;
+  margin-top: 8px;
+}
 
-      .form-control {
-        font-size: 16px;
-      }
+.errorlist li {
+  color: #B91C1C;
+  font-size: 13px;
+}
 
-      .btn-submit {
-        font-size: 14px;
-        padding: 10px 20px;
-      }
+.help-text {
+  font-size: 12px;
+  color: #6B7280;
+  margin-top: 5px;
+}
 
-      .btn-back {
-        font-size: 14px;
-        padding: 8px 16px;
-      }
-    }
+@media (max-width: 992px) {
+  .form-container {
+    padding: 40px 30px;
+  }
 
-    @media (max-width: 480px) {
-      .form-container {
-        padding: 15px;
-      }
+  .form-header {
+    text-align: center;
+  }
+}
 
-      .form-header {
-        margin-bottom: 20px;
-      }
+@media (max-width: 768px) {
+  body {
+    padding: 15px;
+  }
 
-      .form-header h2 {
-        font-size: 20px;
-      }
+  .form-container {
+    padding: 35px 25px;
+  }
 
-      .form-group {
-        margin-bottom: 20px;
-      }
+  .row {
+    flex-direction: column;
+  }
+}
 
-      .row .col-md-6 {
-        margin-bottom: 15px;
-      }
-    }
-  </style>
+@media (max-width: 576px) {
+  .form-container {
+    padding: 30px 20px;
+    border-radius: 20px;
+  }
+
+  .form-header h2 {
+    font-size: 22px;
+    text-align: center;
+  }
+
+  .form-header p {
+    text-align: center;
+    font-size: 14px;
+  }
+
+  .btn-submit {
+    font-size: 15px;
+  }
+}
+</style>
 </head>
 
 <body>
-  <header class="main-header"
-    style="background: white; padding: 10px 20px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); margin-bottom: 20px; display: flex; justify-content: space-between; align-items: center; border-radius: 0 0 16px 16px;">
-    <div class="logo">
-      <h1 style="margin: 0; font-size: 24px; color: #6366f1;">TVMVN</h1>
+  <header class="main-header navbar navbar-expand-lg">
+    <div class="container-fluid">
+  
+      <a class="navbar-brand fw-bold" href="#" style="color:#14532D;">
+        TVMVN
+      </a>
+  
+      <button class="navbar-toggler border-0" type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarContent"
+        aria-controls="navbarContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation">
+        <i class="fas fa-bars" style="color:#14532D; font-size:22px;"></i>
+      </button>
+  
+      <div class="collapse navbar-collapse" id="navbarContent">
+        <ul class="navbar-nav ms-auto gap-lg-3">
+  
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'dashboard' %}">
+              <i class="fas fa-home"></i> Home
+            </a>
+          </li>
+  
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'view_tasks' %}">
+              <i class="fas fa-tasks"></i> My Tasks
+            </a>
+          </li>
+  
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'view_profile' %}">
+              <i class="fas fa-user"></i> Profile
+            </a>
+          </li>
+  
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'settings' %}">
+              <i class="fas fa-cog"></i> Settings
+            </a>
+          </li>
+  
+          <li class="nav-item">
+            <a class="nav-link text-danger fw-semibold" href="{% url 'logout' %}">
+              <i class="fas fa-sign-out-alt"></i> Logout
+            </a>
+          </li>
+  
+        </ul>
+      </div>
+  
     </div>
-    <nav class="nav-links" style="display: flex; gap: 20px; align-items: center;">
-      <a href="{% url 'dashboard' %}" style="text-decoration: none; color: #374151; font-weight: 500;"><i
-          class="fas fa-home"></i> Home</a>
-      <a href="{% url 'view_tasks' %}" style="text-decoration: none; color: #374151; font-weight: 500;"><i
-          class="fas fa-tasks"></i> My Tasks</a>
-      <a href="{% url 'view_profile' %}" style="text-decoration: none; color: #374151; font-weight: 500;"><i
-          class="fas fa-user"></i> Profile</a>
-      <a href="{% url 'settings' %}" style="text-decoration: none; color: #374151; font-weight: 500;"><i
-          class="fas fa-cog"></i> Settings</a>
-      <a href="{% url 'logout' %}" style="text-decoration: none; color: #ef4444; font-weight: 600;"><i
-          class="fas fa-sign-out-alt"></i> Logout</a>
-    </nav>
   </header>
   <div class="form-container">
     <a href="{% url 'view_tasks' %}" class="btn-back">

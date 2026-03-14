@@ -4,7 +4,6 @@
     box-sizing: border-box;
 }
 
-/* Body Styling */
 body {
     font-family: Arial, sans-serif;
     background-color: #f7f7f7;
@@ -16,8 +15,6 @@ body {
     padding: 20px;
 }
 
-
-/* Profile Container */
 .profile-container {
     background-color: #e8dfdf !important;
     padding: 20px;
@@ -27,7 +24,6 @@ body {
     text-align: center;
 }
 
-/* Heading Styling */
 .profile-container h2 {
     font-size: 28px;
     margin-bottom: 20px;
@@ -37,7 +33,6 @@ body {
     text-align: center;
 }
 
-/* Form Styling */
 form {
     display: flex;
     flex-direction: column;
@@ -59,7 +54,6 @@ form input[type="file"] {
     padding: 8px;
 }
 
-/* Button Styling */
 .edit-btn {
     background-color: #3d543e !important;
     color: #fff;
@@ -73,14 +67,12 @@ form input[type="file"] {
     background-color: #45a049;
 }
 
-/* Label Styling */
 form label {
     font-weight: bold;
     margin-bottom: 5px;
     color: #555 !important;
 }
 
-/* Form Field Styling */
 form .field {
     display: flex;
     flex-direction: column;
@@ -95,7 +87,6 @@ form .field textarea {
     border: 1px solid #ddd;
 }
 
-/* Responsive Design */
 @media (max-width: 768px) {
     .profile-container {
         width: 90%;

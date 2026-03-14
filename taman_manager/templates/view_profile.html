@@ -1,14 +1,163 @@
-<!-- view_profile.html -->
 <!DOCTYPE html>
-
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     {% load static %}
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'css/view_profile.css' %}">
     <title>User Profile</title>
+<style>
+    * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    }
+
+    body {
+    background-color: #f3ddbe;
+    font-family: "Montserrat", sans-serif;
+    color: #3F3F46;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+    }
+
+    .profile-container {
+    background: #fdf5e9;
+    border-radius: 25px;
+    padding: 45px 40px;
+    max-width: 750px;
+    width: 100%;
+    box-shadow: 0 10px 30px rgba(20, 83, 45, 0.08);
+    }
+
+    .profile-header {
+    text-align: center;
+    margin-bottom: 30px;
+    }
+
+    .profile-header h2 {
+    font-family: "Baloo Bhaijaan 2", serif;
+    font-size: 32px;
+    color: #14532D;
+    margin-bottom: 8px;
+    }
+
+    .profile-header p {
+    color: #6B7280;
+    font-size: 15px;
+    }
+
+    .profile-image {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+    }
+
+    .profile-image img {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid #14532D;
+    }
+
+    .profile-info {
+    display: grid;
+    gap: 20px;
+    margin-bottom: 35px;
+    }
+
+    .profile-info label {
+    font-size: 13px;
+    color: #6B7280;
+    margin-bottom: 4px;
+    display: block;
+    }
+
+    .value {
+    background: #F9FAFB;
+    border: 1px solid #D6D3D1;
+    border-radius: 12px;
+    padding: 10px 12px;
+    }
+
+    .profile-action-buttons {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    }
+
+    .profile-action-buttons a {
+    text-decoration: none;
+    }
+
+    .edit-btn {
+    width: 100%;
+    padding: 12px;
+    border-radius: 12px;
+    border: none;
+    background: #14532D;
+    color: white;
+    font-family: "Baloo Bhaijaan 2", serif;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.25s ease;
+    }
+
+    .edit-btn:hover {
+    background: #0F3D23;
+    }
+
+    .delete-btn {
+    width: 100%;
+    padding: 12px;
+    border-radius: 12px;
+    border: none;
+    background: #DC2626;
+    color: white;
+    font-family: "Baloo Bhaijaan 2", serif;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.25s ease;
+    }
+
+    .delete-btn:hover {
+    background: #B91C1C;
+    }
+
+
+    .logout-btn {
+    width: 100%;
+    padding: 12px;
+    border-radius: 12px;
+    border: none;
+    background: #6B7280;
+    color: white;
+    font-family: "Baloo Bhaijaan 2", serif;
+    font-size: 16px;
+    cursor: pointer;
+    }
+
+
+    @media (max-width: 600px) {
+
+    .profile-container {
+        padding: 30px 20px;
+    }
+
+    .profile-header h2 {
+        font-size: 26px;
+    }
+
+    .profile-action-buttons {
+        grid-template-columns: 1fr;
+    }
+
+    }
+</style>
 </head>
 
 <body>

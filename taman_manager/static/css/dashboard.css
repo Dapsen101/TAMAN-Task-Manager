@@ -49,14 +49,7 @@ body{
     background-size: 100% 100%;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23fff' d='M13 9V3h8v6zM3 13V3h8v10zm10 8V11h8v10zM3 21v-6h8v6z'/%3E%3C/svg%3E");
   }
-/* .material-symbols--dashboard:hover{
-    display: inline-block;
-    width: 20px;
-    height: 20px;
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23fff' d='M13 9V3h8v6zM3 13V3h8v10zm10 8V11h8v10zM3 21v-6h8v6z'/%3E%3C/svg%3E");
-  } */
+
   .uil--statistics {
     display: inline-block;
     width: 20px;
@@ -158,25 +151,23 @@ body{
   }
 
 .profile-pic{
-    max-width: 50px; /* Set the maximum width */
-    height: 30px !important; /* Set the maximum height */
-    width: auto; 
-     height: auto; /*Automatically adjust height while keeping aspect ratio */
-    object-fit: cover; /* Ensures the image maintains its aspect ratio while filling the space */ 
+    max-width: 50px;
+    height: 30px !important; 
+    height: auto;
+    object-fit: cover;
     border-radius: 5px;
 }
 
   .ProfilePicSection{
     display: flex;
     gap: 3px;
-    max-width: 30px; /* Set the maximum width */
+    max-width: 30px; 
     max-height: 100px!important;
   }
   .CreateTask{
     background-image: linear-gradient(to right, #232323, #5B5B5B);
     border-radius: 8px;
     margin-top: 8%;
-    /* margin-left: 18%; */
     color: white;
     font-family: "Poppins", serif;
     font-weight: 500;
@@ -186,7 +177,6 @@ body{
     display: flex;
     gap: 37%;
     width: 100% !important;
-    /* margin-right: 15% !important; */
   }
   .ongoingTask{
     padding-left: 15px;
@@ -223,7 +213,7 @@ body{
   }
 
   .MilstoneInput > input[type="checkbox"] {
-    accent-color: gray; /* Modern browsers allow this property for checkboxes */
+    accent-color: gray;
   }
   .MilestoneBtn{
     background-color: #232323;

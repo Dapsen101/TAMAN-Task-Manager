@@ -6,6 +6,104 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TAMAN | Edit Profile</title>
     <link rel="stylesheet" href="{% static 'css/profile.css' %}">
+    <style>
+        *{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+background-color:#f3ddbe;
+font-family:"Montserrat",sans-serif;
+color:#3F3F46;
+min-height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+padding:40px 20px;
+}
+
+.profile-container{
+background:#fdf5e9;
+border-radius:25px;
+padding:45px 40px;
+width:100%;
+max-width:650px;
+box-shadow:0 10px 30px rgba(20,83,45,0.08);
+}
+
+.profile-container h2{
+font-family:"Baloo Bhaijaan 2",serif;
+font-size:30px;
+color:#14532D;
+margin-bottom:25px;
+text-align:center;
+}
+
+form p{
+display:flex;
+flex-direction:column;
+margin-bottom:18px;
+}
+
+form label{
+font-size:14px;
+margin-bottom:6px;
+color:#3F3F46;
+}
+
+form input,
+form textarea,
+form select{
+border-radius:12px;
+border:1px solid #D6D3D1;
+padding:10px;
+background:#F9FAFB;
+font-family:"Montserrat",sans-serif;
+transition:0.2s ease;
+}
+
+form input:focus,
+form textarea:focus,
+form select:focus{
+outline:none;
+border-color:#4ADE80;
+box-shadow:0 0 0 0.2rem rgba(74,222,128,0.25);
+}
+
+.edit-btn{
+width:100%;
+margin-top:10px;
+border-radius:12px;
+font-size:16px;
+font-family:"Baloo Bhaijaan 2",serif;
+background-color:#14532D;
+border:none;
+color:white;
+padding:12px;
+cursor:pointer;
+transition:0.25s ease;
+}
+
+.edit-btn:hover{
+background-color:#0F3D23;
+}
+
+#id_image{background-color: #fdf5e9;}
+
+@media(max-width:576px){
+
+.profile-container{
+padding:30px 20px;
+}
+
+.profile-container h2{
+font-size:24px;
+}
+
+}
+    </style>
 </head>
 <body>
     <div class="profile-container">

@@ -4,7 +4,6 @@
     box-sizing: border-box;
 }
 
-/* ===== Page Background ===== */
 html,
 body {
     background-color: #f3ddbe !important;
@@ -118,7 +117,6 @@ body {
     vertical-align: middle;
 }
 
-/* ===== Bottom Link ===== */
 .SignUpButton {
     margin-top: 20px;
     text-align: center;
@@ -134,7 +132,6 @@ body {
     text-decoration: underline;
 }
 
-/* ===== Responsive ===== */
 @media (max-width: 768px) {
     .directContainer {
         padding: 30px 20px;

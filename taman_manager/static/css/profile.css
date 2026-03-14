@@ -4,104 +4,89 @@
     box-sizing: border-box;
 }
 
-/* Body Styling */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f7f7f7;
-    color: #333;
+    background-color: #f3ddbe;
+    font-family: "Montserrat", sans-serif;
+    color: #3F3F46;
+    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
-    padding: 20px;
+    padding: 40px 20px;
 }
 
-/* Profile Container */
 .profile-container {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    background: #fdf5e9;
+    border-radius: 25px;
+    padding: 45px 40px;
     width: 100%;
-    max-width: 600px;
+    max-width: 650px;
+    box-shadow: 0 10px 30px rgba(20, 83, 45, 0.08);
+}
+
+.profile-container h2 {
+    font-family: "Baloo Bhaijaan 2", serif;
+    font-size: 30px;
+    color: #14532D;
+    margin-bottom: 25px;
     text-align: center;
 }
 
-/* Heading Styling */
-.profile-container h2 {
-    font-size: 28px;
-    margin-bottom: 20px;
-    color: #333;
-}
-
-/* Form Styling */
-form {
+form p {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    margin-bottom: 18px;
+}
+
+form label {
+    font-size: 14px;
+    margin-bottom: 6px;
+    color: #3F3F46;
 }
 
 form input,
 form textarea,
-form button {
+form select {
+    border-radius: 12px;
+    border: 1px solid #D6D3D1;
     padding: 10px;
-    font-size: 16px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    width: 100%;
+    background: #F9FAFB;
+    font-family: "Montserrat", sans-serif;
+    transition: 0.2s ease;
 }
 
-form input[type="file"] {
-    border: none;
-    padding: 8px;
+form input:focus,
+form textarea:focus,
+form select:focus {
+    outline: none;
+    border-color: #4ADE80;
+    box-shadow: 0 0 0 0.2rem rgba(74, 222, 128, 0.25);
 }
 
-/* Button Styling */
 .edit-btn {
-    background-color: #3d543e !important;
-    color: #fff;
+    width: 100%;
+    margin-top: 10px;
+    border-radius: 12px;
+    font-size: 16px;
+    font-family: "Baloo Bhaijaan 2", serif;
+    background-color: #14532D;
     border: none;
+    color: white;
+    padding: 12px;
     cursor: pointer;
-    font-weight: bold;
-    transition: background-color 0.3s ease;
+    transition: 0.25s ease;
 }
 
 .edit-btn:hover {
-    background-color: #45a049;
+    background-color: #0F3D23;
 }
 
-/* Label Styling */
-form label {
-    font-weight: bold;
-    margin-bottom: 5px;
-    color: #555 !important;
-}
+@media(max-width:576px) {
 
-/* Form Field Styling */
-form .field {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-}
-
-form .field input,
-form .field textarea {
-    padding: 12px;
-    font-size: 16px;
-    border-radius: 6px;
-    border: 1px solid #ddd;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
     .profile-container {
-        width: 90%;
+        padding: 30px 20px;
     }
 
-    form input,
-    form textarea,
-    form button {
-        font-size: 14px;
-        padding: 8px;
-    }
-}
+    .profile-container h2 {
+        font-size: 24px;
+    }   }

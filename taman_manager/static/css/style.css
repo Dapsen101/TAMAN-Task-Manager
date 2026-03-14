@@ -127,6 +127,131 @@ body {
     animation: float 3s ease-in-out infinite;
 }
 
+.illustration {
+    animation: float 4s ease-in-out infinite;
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.task {
+    opacity: 0;
+    transform: translateX(-20px);
+    animation: slideIn 6s infinite;
+}
+
+.task1 {
+    animation-delay: 0s;
+}
+
+.task2 {
+    animation-delay: 1.5s;
+}
+
+.task3 {
+    animation-delay: 3s;
+}
+
+@keyframes slideIn {
+    0% {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+
+    10% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+    60% {
+        opacity: 1;
+    }
+
+    70% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+.check {
+    fill: none;
+    stroke: #4ADE80;
+    stroke-width: 2.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-dasharray: 20;
+    stroke-dashoffset: 20;
+    animation: draw 6s infinite;
+}
+
+.check1 {
+    animation-delay: 0.4s;
+}
+
+.check2 {
+    animation-delay: 1.9s;
+}
+
+.check3 {
+    animation-delay: 3.4s;
+}
+
+.passwordWrapper {
+    position: relative;
+}
+
+.togglePassword {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.togglePassword svg {
+    transition: 0.2s ease;
+}
+
+.togglePassword:hover svg {
+    stroke: #14532D;
+}
+
+@keyframes draw {
+    0% {
+        stroke-dashoffset: 20;
+    }
+
+    15% {
+        stroke-dashoffset: 0;
+    }
+
+    60% {
+        stroke-dashoffset: 0;
+    }
+
+    70% {
+        stroke-dashoffset: 20;
+    }
+
+    100% {
+        stroke-dashoffset: 20;
+    }
+}
+
 @keyframes float {
 
     0%,
@@ -182,5 +307,9 @@ body {
     .loginBtn,
     .loginGgleBtn {
         font-size: 15px;
+    }
+
+    .illustration {
+        display: none;
     }
 }

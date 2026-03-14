@@ -1,462 +1,311 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     {% load static %}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>View Tasks - Task Manager</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>My Tasks</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
     <style>
         :root {
-            --primary-color: #6366f1;
-            --success-color: #10b981;
-            --warning-color: #f59e0b;
-            --danger-color: #ef4444;
+            --bg-sand: #f3ddbe;
+            --card-cream: #fdf5e9;
+            --deep-green: #2f5d50;
+            --soft-green: #4f7c6e;
+            --light-green: #dfeee8;
+            --text-muted: #6b7280;
+            --danger: #b84a4a;
         }
 
         body {
             font-family: 'Poppins', sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            padding: 20px;
-        }
-
-        .container-modern {
-            max-width: 1200px;
-            margin: 0 auto;
-            background: white;
-            border-radius: 16px;
-            padding: 30px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-        }
-
-        .page-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 30px;
-            flex-wrap: wrap;
-            gap: 15px;
-        }
-
-        .page-title {
-            font-size: 28px;
-            font-weight: 600;
-            color: #1f2937;
+            background: var(--bg-sand);
             margin: 0;
+            padding: 40px 20px;
         }
 
-        .btn-modern {
-            padding: 10px 20px;
+        .container {
+            width: 100%;
+            max-width: 100%;
+            margin: auto;
+            background: var(--card-cream);
+            padding: 20px;
+            border-radius: 16px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.06);
+            box-sizing: border-box;
+    }
+
+        h1 {
+            margin-bottom: 30px;
+            color: var(--deep-green);
+        }
+
+        .filters {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+
+        select, button {
+            padding: 10px 15px;
             border-radius: 8px;
-            font-weight: 500;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            transition: all 0.3s ease;
+            border: 1px solid #ddd;
+            font-family: inherit;
+        }
+
+        select:focus {
+            outline: none;
+            border-color: var(--deep-green);
+        }
+
+        button {
+            background: var(--deep-green);
+            color: white;
             border: none;
             cursor: pointer;
+            transition: 0.2s ease;
         }
 
-        .btn-primary-modern {
-            background: var(--primary-color);
-            color: white;
+        button:hover {
+            background: var(--soft-green);
         }
 
-        .btn-primary-modern:hover {
-            background: #4f46e5;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(99, 102, 241, 0.4);
-            color: white;
-        }
-
-        .btn-success-modern {
-            background: var(--success-color);
-            color: white;
-        }
-
-        .btn-danger-modern {
-            background: var(--danger-color);
-            color: white;
-        }
-
-        .btn-warning-modern {
-            background: var(--warning-color);
-            color: white;
-        }
-
-        .filters-section {
-            background: #f9fafb;
-            padding: 20px;
-            border-radius: 12px;
-            margin-bottom: 25px;
-        }
-
-        .filters-row {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
-            margin-bottom: 15px;
-        }
-
-        .form-control-modern {
-            padding: 10px 15px;
-            border: 2px solid #e5e7eb;
-            border-radius: 8px;
-            font-size: 14px;
-            transition: border-color 0.3s ease;
-        }
-
-        .form-control-modern:focus {
-            outline: none;
-            border-color: var(--primary-color);
-            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
-        }
-
-        .tasks-table {
+        table {
             width: 100%;
             border-collapse: collapse;
+            /* table-layout: fixed; */
         }
 
-        .tasks-table thead {
-            background: #f9fafb;
+        thead {
+            background: var(--light-green);
         }
 
-        .tasks-table th {
-            padding: 15px;
+        th, td {
+            padding: 14px;
             text-align: left;
+            vertical-align: middle;
+        }
+
+        th {
+            color: var(--deep-green);
             font-weight: 600;
-            color: #374151;
             font-size: 14px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
         }
 
-        .tasks-table td {
-            padding: 15px;
-            border-bottom: 1px solid #e5e7eb;
+        tbody tr {
+            border-bottom: 1px solid #e5e5e5;
         }
 
-        .tasks-table tbody tr:hover {
-            background: #f9fafb;
+        tbody tr:hover {
+            background: #f1f6f4;
         }
 
-        .status-badge {
+        .task-name {
+            max-width: 250px;
+            display: inline-block;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            vertical-align: middle;
+        }
+
+        .task-name.expanded {
+            white-space: normal;
+        }
+
+        .toggle-btn {
+            background: none;
+            border: none;
+            color: var(--deep-green);
+            cursor: pointer;
+            font-size: 12px;
+            margin-left: 6px;
+            padding: 0;
+        }
+
+        .badge {
             padding: 6px 12px;
             border-radius: 20px;
             font-size: 12px;
             font-weight: 500;
-            display: inline-block;
         }
 
-        .badge-created {
-            background: #dbeafe;
-            color: #1e40af;
+        .created {
+            background: #e6f4ef;
+            color: #2f5d50;
         }
 
-        .badge-in-progress {
-            background: #fef3c7;
-            color: #92400e;
+        .progress {
+            background: #fff3cd;
+            color: #856404;
         }
 
-        .badge-completed {
-            background: #d1fae5;
-            color: #065f46;
+        .completed {
+            background: #d4edda;
+            color: #155724;
         }
 
-        .action-buttons {
-            display: flex;
-            gap: 8px;
-            flex-wrap: wrap;
-        }
-
-        .btn-sm-modern {
-            padding: 6px 12px;
-            font-size: 13px;
+        .btn-small {
+            padding: 6px 10px;
+            font-size: 12px;
             border-radius: 6px;
-        }
-
-        .pagination-modern {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 10px;
-            margin-top: 30px;
-        }
-
-        .pagination-modern a,
-        .pagination-modern span {
-            padding: 8px 12px;
-            border-radius: 6px;
-            text-decoration: none;
-            color: #374151;
-            background: white;
-            border: 2px solid #e5e7eb;
-            transition: all 0.3s ease;
-        }
-
-        .pagination-modern a:hover {
-            background: var(--primary-color);
+            background: var(--soft-green);
             color: white;
-            border-color: var(--primary-color);
+            border: none;
+            cursor: pointer;
         }
 
-        .pagination-modern .current {
-            background: var(--primary-color);
-            color: white;
-            border-color: var(--primary-color);
+        .btn-danger {
+            background: var(--danger);
         }
 
-        .empty-state {
+        .empty {
             text-align: center;
-            padding: 60px 20px;
-            color: #6b7280;
+            padding: 40px;
+            color: var(--text-muted);
         }
 
-        .empty-state i {
-            font-size: 64px;
-            margin-bottom: 20px;
-            opacity: 0.5;
+
+        @media (max-width: 768px) {
+            body {
+                padding: 20px 10px;
+            }
+
+            .container {
+                padding: 25px 15px;
+            }
+            .filters {
+                flex-direction: column;
+            }
+
+            .filters select,
+            .filters button {
+                width: 100%;
+            }
+
+            table {
+                font-size: 14px;
+                table-layout: fixed;
+            }
+
+            .btn-small {
+                width: 100%;
+                margin-top: 6px;
+            }
         }
 
         @media (max-width: 768px) {
-            .tasks-table {
-                font-size: 14px;
+
+            body {
+                padding: 15px;
             }
 
-            .tasks-table th,
-            .tasks-table td {
-                padding: 10px;
+            table {
+                display: block;
+                width: 100%;
+                overflow-x: auto;
             }
 
-            .action-buttons {
-                flex-direction: column;
+            th, td {
+                white-space: nowrap;
+            }
+
+            .task-name {
+                max-width: 90px;
+            }
+
+            .btn-small {
+                width: 100%;
             }
         }
     </style>
 </head>
 
 <body>
-    <header class="main-header"
-        style="background: white; padding: 10px 20px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); margin-bottom: 20px; display: flex; justify-content: space-between; align-items: center; border-radius: 0 0 16px 16px;">
-        <div class="logo">
-            <h1 style="margin: 0; font-size: 24px; color: #6366f1;">TVMVN</h1>
-        </div>
-        <nav class="nav-links" style="display: flex; gap: 20px; align-items: center;">
-            <a href="{% url 'dashboard' %}" style="text-decoration: none; color: #374151; font-weight: 500;"><i
-                    class="fas fa-home"></i> Home</a>
-            <a href="{% url 'view_tasks' %}" style="text-decoration: none; color: #374151; font-weight: 500;"><i
-                    class="fas fa-tasks"></i> My Tasks</a>
-            <a href="{% url 'view_profile' %}" style="text-decoration: none; color: #374151; font-weight: 500;"><i
-                    class="fas fa-user"></i> Profile</a>
-            <a href="{% url 'settings' %}" style="text-decoration: none; color: #374151; font-weight: 500;"><i
-                    class="fas fa-cog"></i> Settings</a>
-            <a href="{% url 'logout' %}" style="text-decoration: none; color: #ef4444; font-weight: 600;"><i
-                    class="fas fa-sign-out-alt"></i> Logout</a>
-        </nav>
-    </header>
-    <div class="container-modern">
-        <div class="page-header">
-            <h1 class="page-title"><i class="fas fa-tasks"></i> My Tasks</h1>
-            <div>
-                <a href="{% url 'dashboard' %}" class="btn-modern btn-secondary">
-                    <i class="fas fa-arrow-left"></i> Back to Dashboard
-                </a>
-                <a href="{% url 'create_task' %}" class="btn-modern btn-primary-modern">
-                    <i class="fas fa-plus"></i> Create Task
-                </a>
-            </div>
-        </div>
+<div class="container">
 
-        {% if messages %}
-        <div class="messages">
-            {% for message in messages %}
-            <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
-                {{ message }}
-                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-            </div>
+    <h1>🌿 My Tasks</h1>
+
+    <form method="GET" class="filters">
+        <select name="status">
+            <option value="">All Statuses</option>
+            <option value="Created" {% if status_filter == 'Created' %}selected{% endif %}>Created</option>
+            <option value="In Progress" {% if status_filter == 'In Progress' %}selected{% endif %}>In Progress</option>
+            <option value="Completed" {% if status_filter == 'Completed' %}selected{% endif %}>Completed</option>
+        </select>
+
+        <select name="category">
+            <option value="">All Categories</option>
+            <option value="Work" {% if category_filter == 'Work' %}selected{% endif %}>Work</option>
+            <option value="Personal" {% if category_filter == 'Personal' %}selected{% endif %}>Personal</option>
+            <option value="Shopping" {% if category_filter == 'Shopping' %}selected{% endif %}>Shopping</option>
+            <option value="Health" {% if category_filter == 'Health' %}selected{% endif %}>Health</option>
+            <option value="Education" {% if category_filter == 'Education' %}selected{% endif %}>Education</option>
+            <option value="Other" {% if category_filter == 'Other' %}selected{% endif %}>Other</option>
+        </select>
+
+        <button type="submit">Apply</button>
+    </form>
+
+    {% if tasks %}
+    <table>
+        <thead>
+            <tr>
+                <th>Task</th>
+                <th>Status</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for task in tasks %}
+            <tr>
+
+                <td>
+                    <span class="task-name">{{ task.name }}</span>
+                    {% if task.name|length > 40 %}
+                        <button type="button" class="toggle-btn" onclick="toggleTaskName(this)">see more</button>
+                    {% endif %}
+                </td>
+
+                <td>
+                    <span class="badge 
+                        {% if task.status == 'Created' %}created
+                        {% elif task.status == 'In Progress' %}progress
+                        {% elif task.status == 'Completed' %}completed
+                        {% endif %}">
+                        {{ task.status }}
+                    </span>
+                </td>
+
+                <td>
+                    <form method="POST" action="{% url 'delete_task' task.id %}">
+                        {% csrf_token %}
+                        <button type="submit" class="btn-small btn-danger">Delete</button>
+                    </form>
+                </td>
+
+            </tr>
             {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+        <div class="empty">
+            No tasks yet. Go create something productive 😌
         </div>
-        {% endif %}
+    {% endif %}
 
-        <!-- Filters Section -->
-        <div class="filters-section">
-            <form method="GET" action="{% url 'view_tasks' %}">
-                <div class="filters-row">
-                    <div>
-                        <label class="form-label">Search</label>
-                        <input type="text" name="search" class="form-control form-control-modern"
-                            placeholder="Search tasks..." value="{{ search_query }}">
-                    </div>
-                    <div>
-                        <label class="form-label">Status</label>
-                        <select name="status" class="form-control form-control-modern">
-                            <option value="">All Statuses</option>
-                            <option value="Created" {% if status_filter=='Created' %}selected{% endif %}>Created
-                            </option>
-                            <option value="In Progress" {% if status_filter=='In Progress' %}selected{% endif %}>In
-                                Progress</option>
-                            <option value="Completed" {% if status_filter=='Completed' %}selected{% endif %}>Completed
-                            </option>
-                        </select>
-                    </div>
-                    <div>
-                        <label class="form-label">Category</label>
-                        <select name="category" class="form-control form-control-modern">
-                            <option value="">All Categories</option>
-                            <option value="Work" {% if category_filter=='Work' %}selected{% endif %}>Work</option>
-                            <option value="Personal" {% if category_filter=='Personal' %}selected{% endif %}>Personal
-                            </option>
-                            <option value="Shopping" {% if category_filter=='Shopping' %}selected{% endif %}>Shopping
-                            </option>
-                            <option value="Health" {% if category_filter=='Health' %}selected{% endif %}>Health</option>
-                            <option value="Education" {% if category_filter=='Education' %}selected{% endif %}>Education
-                            </option>
-                            <option value="Other" {% if category_filter=='Other' %}selected{% endif %}>Other</option>
-                        </select>
-                    </div>
-                    <div>
-                        <label class="form-label">Sort By</label>
-                        <select name="sort" class="form-control form-control-modern">
-                            <option value="-created_at" {% if sort_by=='-created_at' %}selected{% endif %}>Newest First
-                            </option>
-                            <option value="created_at" {% if sort_by=='created_at' %}selected{% endif %}>Oldest First
-                            </option>
-                            <option value="name" {% if sort_by=='name' %}selected{% endif %}>Name (A-Z)</option>
-                            <option value="-name" {% if sort_by=='-name' %}selected{% endif %}>Name (Z-A)</option>
-                            <option value="status" {% if sort_by=='status' %}selected{% endif %}>Status</option>
-                            <option value="category" {% if sort_by=='category' %}selected{% endif %}>Category</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="d-flex gap-2">
-                    <button type="submit" class="btn-modern btn-primary-modern">
-                        <i class="fas fa-filter"></i> Apply Filters
-                    </button>
-                    <a href="{% url 'view_tasks' %}" class="btn-modern" style="background: #6b7280; color: white;">
-                        <i class="fas fa-times"></i> Clear
-                    </a>
-                </div>
-            </form>
-        </div>
+</div>
 
-        {% if tasks %}
-        <div class="table-responsive">
-            <table class="tasks-table">
-                <thead>
-                    <tr>
-                        <th>Task Name</th>
-                        <th>Description</th>
-                        <th>Category</th>
-                        <th>Status</th>
-                        <th>Assigned To</th>
-                        <th>Created</th>
-                        <th>Actions</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for task in tasks %}
-                    <tr>
-                        <td><strong>{{ task.name }}</strong></td>
-                        <td>{{ task.description|truncatewords:10 }}</td>
-                        <td><span class="badge bg-secondary">{{ task.category }}</span></td>
-                        <td>
-                            <span class="status-badge badge-{{ task.status|lower|slugify }}">
-                                {{ task.status }}
-                            </span>
-                        </td>
-                        <td>
-                            {% if task.assigned_to %}
-                            {{ task.assigned_to.username }}
-                            {% else %}
-                            <span style="color: #9ca3af;">Unassigned</span>
-                            {% endif %}
-                        </td>
-                        <td>{{ task.created_at|date:"M d, Y" }}</td>
-                        <td>
-                            <div class="action-buttons">
-                                <form method="POST" action="{% url 'update_status' task.id %}" style="display: inline;">
-                                    {% csrf_token %}
-                                    <select name="status" class="form-control form-control-modern"
-                                        style="width: auto; display: inline-block; margin-right: 5px;"
-                                        onchange="this.form.submit()">
-                                        <option value="Created" {% if task.status=='Created' %}selected{% endif %}>
-                                            Created</option>
-                                        <option value="In Progress" {% if task.status=='In Progress' %}selected{% endif
-                                            %}>In Progress</option>
-                                        <option value="Completed" {% if task.status=='Completed' %}selected{% endif %}>
-                                            Completed</option>
-                                    </select>
-                                </form>
-                                <a href="{% url 'edit_task' task.id %}"
-                                    class="btn-modern btn-warning-modern btn-sm-modern">
-                                    <i class="fas fa-edit"></i> Edit
-                                </a>
-                                <form method="POST" action="{% url 'delete_task' task.id %}" style="display: inline;"
-                                    onsubmit="return confirm('Are you sure you want to delete this task?');">
-                                    {% csrf_token %}
-                                    <button type="submit" class="btn-modern btn-danger-modern btn-sm-modern">
-                                        <i class="fas fa-trash"></i> Delete
-                                    </button>
-                                </form>
-                            </div>
-                        </td>
-                    </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
-        </div>
+<script>
+function toggleTaskName(btn) {
+    const span = btn.previousElementSibling;
+    span.classList.toggle('expanded');
+    btn.textContent = span.classList.contains('expanded') ? 'see less' : 'see more';
+}
+</script>
 
-        <!-- Pagination -->
-        {% if tasks.has_other_pages %}
-        <div class="pagination-modern">
-            {% if tasks.has_previous %}
-            <a
-                href="?page=1{% if search_query %}&search={{ search_query }}{% endif %}{% if status_filter %}&status={{ status_filter }}{% endif %}{% if category_filter %}&category={{ category_filter }}{% endif %}{% if sort_by %}&sort={{ sort_by }}{% endif %}">
-                <i class="fas fa-angle-double-left"></i>
-            </a>
-            <a
-                href="?page={{ tasks.previous_page_number }}{% if search_query %}&search={{ search_query }}{% endif %}{% if status_filter %}&status={{ status_filter }}{% endif %}{% if category_filter %}&category={{ category_filter }}{% endif %}{% if sort_by %}&sort={{ sort_by }}{% endif %}">
-                <i class="fas fa-angle-left"></i>
-            </a>
-            {% endif %}
-
-            <span class="current">
-                Page {{ tasks.number }} of {{ tasks.paginator.num_pages }}
-            </span>
-
-            {% if tasks.has_next %}
-            <a
-                href="?page={{ tasks.next_page_number }}{% if search_query %}&search={{ search_query }}{% endif %}{% if status_filter %}&status={{ status_filter }}{% endif %}{% if category_filter %}&category={{ category_filter }}{% endif %}{% if sort_by %}&sort={{ sort_by }}{% endif %}">
-                <i class="fas fa-angle-right"></i>
-            </a>
-            <a
-                href="?page={{ tasks.paginator.num_pages }}{% if search_query %}&search={{ search_query }}{% endif %}{% if status_filter %}&status={{ status_filter }}{% endif %}{% if category_filter %}&category={{ category_filter }}{% endif %}{% if sort_by %}&sort={{ sort_by }}{% endif %}">
-                <i class="fas fa-angle-double-right"></i>
-            </a>
-            {% endif %}
-        </div>
-        {% endif %}
-
-        {% else %}
-        <div class="empty-state">
-            <i class="fas fa-inbox"></i>
-            <h3>No tasks found</h3>
-            <p>{% if search_query or status_filter or category_filter %}Try adjusting your filters.{% else %}Create your
-                first task to get started!{% endif %}</p>
-            <a href="{% url 'create_task' %}" class="btn-modern btn-primary-modern" style="margin-top: 20px;">
-                <i class="fas fa-plus"></i> Create Task
-            </a>
-        </div>
-        {% endif %}
-    </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
-
 </html>
