@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
     {% load static %}
@@ -17,6 +17,7 @@
             --light-green: #dfeee8;
             --text-muted: #6b7280;
             --danger: #b84a4a;
+            --success: #28a745;
         }
 
         body {
@@ -35,10 +36,10 @@
             border-radius: 16px;
             box-shadow: 0 8px 25px rgba(0,0,0,0.06);
             box-sizing: border-box;
-    }
+        }
 
         h1 {
-            margin-bottom: 30px;
+            margin-bottom: 20px;
             color: var(--deep-green);
         }
 
@@ -56,17 +57,11 @@
             font-family: inherit;
         }
 
-        select:focus {
-            outline: none;
-            border-color: var(--deep-green);
-        }
-
         button {
             background: var(--deep-green);
             color: white;
             border: none;
             cursor: pointer;
-            transition: 0.2s ease;
         }
 
         button:hover {
@@ -76,7 +71,6 @@
         table {
             width: 100%;
             border-collapse: collapse;
-            /* table-layout: fixed; */
         }
 
         thead {
@@ -104,12 +98,11 @@
         }
 
         .task-name {
-            max-width: 250px;
+            max-width: 200px;
             display: inline-block;
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
-            vertical-align: middle;
         }
 
         .task-name.expanded {
@@ -123,7 +116,6 @@
             cursor: pointer;
             font-size: 12px;
             margin-left: 6px;
-            padding: 0;
         }
 
         .badge {
@@ -152,14 +144,23 @@
             padding: 6px 10px;
             font-size: 12px;
             border-radius: 6px;
-            background: var(--soft-green);
-            color: white;
             border: none;
             cursor: pointer;
+            color: white;
+        }
+
+        .btn-complete {
+            background: var(--success);
         }
 
         .btn-danger {
             background: var(--danger);
+        }
+
+        .actions {
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap;
         }
 
         .empty {
@@ -168,15 +169,11 @@
             color: var(--text-muted);
         }
 
-
         @media (max-width: 768px) {
             body {
-                padding: 20px 10px;
+                padding: 15px;
             }
 
-            .container {
-                padding: 25px 15px;
-            }
             .filters {
                 flex-direction: column;
             }
@@ -185,27 +182,8 @@
             .filters button {
                 width: 100%;
             }
-
-            table {
-                font-size: 14px;
-                table-layout: fixed;
-            }
-
-            .btn-small {
-                width: 100%;
-                margin-top: 6px;
-            }
-        }
-
-        @media (max-width: 768px) {
-
-            body {
-                padding: 15px;
-            }
-
             table {
                 display: block;
-                width: 100%;
                 overflow-x: auto;
             }
 
@@ -214,7 +192,11 @@
             }
 
             .task-name {
-                max-width: 90px;
+                max-width: 140px;
+            }
+
+            .actions {
+                flex-direction: column;
             }
 
             .btn-small {
@@ -225,6 +207,7 @@
 </head>
 
 <body>
+
 <div class="container">
 
     <h1>🌿 My Tasks</h1>
@@ -259,10 +242,10 @@
                 <th>Actions</th>
             </tr>
         </thead>
+
         <tbody>
             {% for task in tasks %}
             <tr>
-
                 <td>
                     <span class="task-name">{{ task.name }}</span>
                     {% if task.name|length > 40 %}
@@ -281,16 +264,33 @@
                 </td>
 
                 <td>
-                    <form method="POST" action="{% url 'delete_task' task.id %}">
-                        {% csrf_token %}
-                        <button type="submit" class="btn-small btn-danger">Delete</button>
-                    </form>
-                </td>
+                    <div class="actions">
 
+                        {% if task.status != 'Completed' %}
+                        <form method="POST" action="{% url 'update_status' task.id %}">
+                            {% csrf_token %}
+                            <input type="hidden" name="status" value="Completed">
+                            <button type="submit" class="btn-small btn-complete">
+                                Complete
+                            </button>
+                        </form>
+                        {% endif %}
+
+                        <form method="POST" action="{% url 'delete_task' task.id %}">
+                            {% csrf_token %}
+                            <button type="submit" class="btn-small btn-danger"
+                                onclick="return confirm('Delete this task?')">
+                                Delete
+                            </button>
+                        </form>
+
+                    </div>
+                </td>
             </tr>
             {% endfor %}
         </tbody>
     </table>
+
     {% else %}
         <div class="empty">
             No tasks yet. Go create something productive 😌
@@ -298,7 +298,6 @@
     {% endif %}
 
 </div>
-
 <script>
 function toggleTaskName(btn) {
     const span = btn.previousElementSibling;
